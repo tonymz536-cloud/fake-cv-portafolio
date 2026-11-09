@@ -1,0 +1,39 @@
+# --- Tokens y secretos sensibles (NO subir) ---
+tokens.txt
+"token GitHub.txt"
+*.txt
+!README.md
+*.env
+.env*
+!.env.example
+.env.local
+.env.*.local
+
+# --- Dependencias ---
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# --- Sistema operativo ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Build / salida local ---
+dist/
+build/
+out/
+*.local
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo

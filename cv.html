@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Anthony Murillo Zapata — Curriculum Vitae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0c1512;
+    --muted:#5a6a63;
+    --green:#0b6b46;
+    --mint:#d9f3e6;
+    --line:#dfe7e2;
+  }
+  *{box-sizing:border-box}
+  @page{size:A4;margin:0}
+  body{
+    margin:0;background:#fff;color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;font-size:8.3pt;line-height:1.31;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  .page{width:210mm;min-height:297mm;padding:5mm 11mm 2mm;position:relative;overflow:hidden}
+  .page::before{
+    content:"";position:absolute;top:0;left:0;width:100%;height:6px;
+    background:linear-gradient(90deg,#0b6b46,#7cf0b8 60%,#0b6b46);
+  }
+  header{display:flex;justify-content:space-between;gap:14mm;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:1.5mm}
+  h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:18.5pt;font-weight:800;letter-spacing:-.02em;margin:0;line-height:1.05}
+  .role{font-size:10.5pt;font-weight:600;color:var(--green);margin-top:2mm}
+  .contact{text-align:right;font-size:8.8pt;color:var(--muted);line-height:1.7;white-space:nowrap}
+  .contact b{color:var(--ink);font-weight:600}
+  main{display:grid;grid-template-columns:1fr 44mm;gap:7mm;padding-top:4mm}
+  h2{
+    font-family:'Plus Jakarta Sans',sans-serif;font-size:8.4pt;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--green);margin:0 0 3mm;
+    display:flex;align-items:center;gap:2.5mm;
+  }
+  h2::after{content:"";flex:1;height:1px;background:var(--line)}
+  section{margin-bottom:1.2mm}
+  p{margin:0 0 2.5mm}
+  .lead{color:#33443c}
+  .item{margin-bottom:.6mm;page-break-inside:avoid}
+  .item:last-child{margin-bottom:0}
+  .item__date{font-size:7.8pt;font-weight:600;color:var(--green);letter-spacing:.04em;text-transform:uppercase}
+  .item__title{font-family:'Plus Jakarta Sans',sans-serif;font-size:9.6pt;font-weight:700;margin:.5mm 0 0;line-height:1.3}
+  .item__org{font-size:8.8pt;color:var(--muted);margin-bottom:1mm}
+  .item__desc{font-size:8.4pt;color:#3c4d45}
+  .tags{display:flex;flex-wrap:wrap;gap:1.6mm;margin-top:1.6mm}
+  .tag{font-size:7.4pt;font-weight:600;color:#0a5a3c;background:var(--mint);border-radius:4px;padding:1mm 2mm}
+  .side section:last-child{margin-bottom:0}
+  .skills{display:flex;flex-wrap:wrap;gap:1.6mm}
+  .skill{font-size:8.2pt;border:1px solid var(--line);border-radius:99px;padding:1.3mm 2.6mm;color:#33443c}
+  .note{font-size:8.4pt;color:var(--muted);line-height:1.6}
+  ul{margin:0;padding-left:4mm}
+  li{font-size:8.8pt;color:#3c4d45;margin-bottom:1.4mm}
+  .foot{
+    margin-top:1.5mm;padding-top:1.4mm;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;font-size:7.6pt;color:var(--muted);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div>
+      <h1>Anthony Murillo Zapata</h1>
+      <p class="role">Aerospace Engineering Student</p>
+    </div>
+    <div class="contact">
+      Manchester, United Kingdom<br />
+      <b>anthony@example.com</b><br />
+      linkedin.com/in/anthony
+    </div>
+  </header>
+
+  <main>
+    <div class="main">
+      <section>
+        <h2>Profile</h2>
+        <p class="lead">Aerospace Engineering student at the University of Manchester with seven years of hands-on experience in maintenance, parts management and high-pressure operations. Seeking an internship to apply theory to real engineering problems.</p>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="item">
+          <p class="item__date">2015 — Current</p>
+          <p class="item__title">BEng / MEng, Aerospace Engineering</p>
+          <p class="item__org">University of Manchester · Aerospace Engineering with a Foundation Year</p>
+          <p class="item__desc">Aerodynamics, structures, propulsion and engineering mathematics.</p>
+        </div>
+        <div class="item">
+          <p class="item__date">2014 — 2015</p>
+          <p class="item__title">Level 3 Access to HE, Engineering Science</p>
+          <p class="item__org">College</p>
+          <p class="item__desc">9 Distinctions and 6 Merits in Engineering Science; 15 Distinctions in Physics; 6 Distinctions and 9 Merits in Maths.</p>
+          <div class="tags"><span class="tag">Distinctions</span><span class="tag">Physics</span><span class="tag">Maths</span></div>
+        </div>
+        <div class="item">
+          <p class="item__date">2010 — 2012</p>
+          <p class="item__title">Level 2 NVQ, HGV Vehicle Maintenance &amp; Repair</p>
+          <p class="item__org">College</p>
+          <p class="item__desc">Diploma covering heavy vehicle servicing, diagnostics and workshop practice.</p>
+        </div>
+        <div class="item">
+          <p class="item__date">2006 — 2010</p>
+          <p class="item__title">GCSEs</p>
+          <p class="item__org">School</p>
+          <p class="item__desc">English (C), Business Studies (B), Maths (C), Catering (C), Additional Science (C), Engineering Double Award (B, C).</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+        <div class="item">
+          <p class="item__date">Nov 2014 — Sep 2015</p>
+          <p class="item__title">Shop Assistant</p>
+          <p class="item__org">Spar Shop</p>
+          <p class="item__desc">Managed the tills, handled money and kept shelves stocked. Supported the owner with the morning paper round for three months.</p>
+        </div>
+        <div class="item">
+          <p class="item__date">Aug 2014 — Dec 2014</p>
+          <p class="item__title">Kitchen Porter</p>
+          <p class="item__org">Restaurant</p>
+          <p class="item__desc">Kept the kitchen clean and organised, supported the head chef and prepared vegetables during service.</p>
+        </div>
+        <div class="item">
+          <p class="item__date">Jun 2013 — Aug 2014</p>
+          <p class="item__title">Parts &amp; Store Manager</p>
+          <p class="item__org">NAME Commercials</p>
+          <p class="item__desc">Managed warehouse stock and sourcing, handled customer sales and warranty issues, and kept records that protected profit margins.</p>
+        </div>
+        <div class="item">
+          <p class="item__date">Jun 2010 — Jun 2013</p>
+          <p class="item__title">Apprentice / Technician</p>
+          <p class="item__org">NAME Commercials</p>
+          <p class="item__desc">Serviced and repaired heavy goods vehicles, carried out road-safety inspections and completed a Level 2 NVQ at college one day a week.</p>
+        </div>
+        <div class="item">
+          <p class="item__date">May 2009</p>
+          <p class="item__title">Work Experience</p>
+          <p class="item__org">Penventon Park Hotel, Cornwall</p>
+          <p class="item__desc">Two weeks supporting the kitchen, housekeeping, reception and functions teams.</p>
+        </div>
+      </section>
+    </div>
+
+    <div class="side">
+      <section>
+        <h2>Skills</h2>
+        <div class="skills">
+          <span class="skill">CAD &amp; simulation</span>
+          <span class="skill">Vehicle diagnostics</span>
+          <span class="skill">HGV servicing</span>
+          <span class="skill">Stock &amp; procurement</span>
+          <span class="skill">Event leadership</span>
+          <span class="skill">Customer service</span>
+          <span class="skill">Teamwork</span>
+          <span class="skill">Time management</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Leadership</h2>
+        <p class="note">Deputy Chair of the Residents Association at the University of Manchester: supporting the Chair, organising events, administration and charity fundraising with the “Raise and Give” branch.</p>
+      </section>
+
+      <section>
+        <h2>Interests</h2>
+        <p class="note">Guitar, martial arts, kayaking and badminton. Interested in the UK space industry and the development of renewable energy and bio-technology.</p>
+      </section>
+
+      <section>
+        <h2>Languages</h2>
+        <ul>
+          <li>Spanish — native</li>
+          <li>English — professional</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>References</h2>
+        <p class="note">Available on request from my shop and workshop placements.</p>
+      </section>
+    </div>
+  </main>
+
+  <div class="foot">
+    <span>Anthony Murillo Zapata · Aerospace Engineering</span>
+    <span>Curriculum Vitae</span>
+  </div>
+</div>
+</body>
+</html>

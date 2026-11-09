@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Anthony Murillo Zapata — Aerospace Engineering Portfolio</title>
+<meta name="description" content="Portfolio of Anthony Murillo Zapata, Aerospace Engineering student at the University of Manchester. CAD, maintenance, operations and leadership." />
+<meta name="theme-color" content="#040605" />
+<meta property="og:title" content="Anthony Murillo Zapata — Aerospace Engineering Portfolio" />
+<meta property="og:description" content="Aerospace Engineering student at the University of Manchester. Open to internships." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="foto.jpeg" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23043a27'/%3E%3Ctext x='32' y='43' font-family='Arial' font-size='28' font-weight='700' fill='%237cf0b8' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --bg:#040605;
+  --panel:#070908;
+  --card:#121614;
+  --card-2:#171c19;
+  --green-900:#02251a;
+  --green-800:#043322;
+  --green-700:#07482f;
+  --green-500:#0d7a4f;
+  --green-400:#12a468;
+  --mint:#7cf0b8;
+  --white:#f7faf8;
+  --muted:#9aa8a1;
+  --line:rgba(255,255,255,.09);
+  --line-strong:rgba(255,255,255,.16);
+  --r-xl:34px;
+  --r-lg:22px;
+  --r-md:16px;
+  --font-head:'Plus Jakarta Sans','Segoe UI',system-ui,sans-serif;
+  --font-body:'Inter','Segoe UI',system-ui,sans-serif;
+  --shadow:0 30px 80px -40px rgba(0,0,0,.9);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{
+  margin:0;background:var(--bg);color:var(--white);
+  font-family:var(--font-body);font-size:15px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:clip;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(55% 42% at 8% -8%,rgba(18,164,104,.20),transparent 62%),
+    radial-gradient(45% 38% at 102% 6%,rgba(18,164,104,.10),transparent 60%);
+}
+img{display:block;max-width:100%}
+#home,#about,#services,#experience,#education,#work,#references,#contact{scroll-margin-top:86px}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+h1,h2,h3,h4,p{margin:0}
+::selection{background:var(--green-400);color:#04150d}
+:focus-visible{outline:2px solid var(--mint);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-9999px;top:8px;z-index:200;background:var(--mint);color:#03150d;padding:10px 16px;border-radius:8px;font-weight:600}
+.skip:focus{left:8px}
+
+/* ============================================================
+   LAYOUT SHELL
+   ============================================================ */
+.page{position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:12px}
+.shell{display:grid;grid-template-columns:1fr;gap:12px}
+.shell > *,.hero > *,.about__grid > *,.services__grid > *,.work__grid > *,.form > *{min-width:0}
+.panel{position:relative;border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow)}
+.panel--main{
+  background:
+    radial-gradient(120% 75% at 16% 0%,#0a3f2a 0%,#06291c 30%,#071510 58%,#070a09 100%),
+    var(--panel);
+}
+.panel--main::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(52% 42% at 76% 16%,rgba(18,164,104,.20),transparent 72%);
+}
+.panel--side{
+  background:linear-gradient(180deg,#080b0a,#060807);
+  padding:26px 18px 34px;display:flex;flex-direction:column;gap:46px;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:10px;
+  padding:14px 16px;
+  background:linear-gradient(180deg,rgba(4,18,12,.92),rgba(4,18,12,.62));
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  border-radius:26px 26px 0 0;
+}
+.brand{
+  font-family:var(--font-head);font-weight:800;font-size:19px;letter-spacing:-.03em;
+  display:flex;align-items:center;gap:8px;margin-right:auto;
+}
+.brand::before{
+  content:"";width:9px;height:9px;border-radius:50%;background:var(--mint);
+  box-shadow:0 0 14px 2px rgba(124,240,184,.65);
+}
+.brand em{font-style:normal;color:var(--mint)}
+.nav__links{display:none;align-items:center;gap:4px}
+.nav__links a{
+  font-size:13px;font-weight:500;color:#c8d4ce;padding:8px 12px;border-radius:99px;
+  transition:color .2s,background .2s;
+}
+.nav__links a:hover,.nav__links a.is-active{color:#fff;background:rgba(255,255,255,.07)}
+.nav__actions{display:flex;align-items:center;gap:8px}
+.lang{
+  display:flex;align-items:center;gap:2px;padding:3px;border-radius:99px;
+  border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);
+}
+.lang__btn{
+  font-size:11px;font-weight:700;letter-spacing:.06em;padding:5px 9px;border-radius:99px;
+  color:#9fb0a8;transition:.2s;
+}
+.lang__btn.is-active{background:#fff;color:#08150f}
+.nav .nav__cta{display:none}
+.burger{position:relative;width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.14)}
+.burger span{
+  position:absolute;left:50%;top:50%;display:block;width:17px;height:1.8px;margin:0;
+  background:#fff;border-radius:2px;transition:transform .28s,opacity .2s;
+}
+.burger span:nth-child(1){transform:translate(-50%,calc(-50% - 6px))}
+.burger span:nth-child(2){transform:translate(-50%,-50%)}
+.burger span:nth-child(3){transform:translate(-50%,calc(-50% + 6px))}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translate(-50%,-50%) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translate(-50%,-50%) rotate(-45deg)}
+.mobile-menu{
+  position:absolute;z-index:55;left:10px;right:10px;top:66px;
+  display:none;flex-direction:column;gap:2px;padding:12px;
+  background:#07130e;border:1px solid var(--line-strong);border-radius:18px;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.9);
+}
+.mobile-menu.is-open{display:flex}
+.mobile-menu a{padding:12px 14px;border-radius:10px;font-size:14px;font-weight:500;color:#dbe6e0}
+.mobile-menu a:hover{background:rgba(255,255,255,.06)}
+.mobile-menu .btn{margin-top:6px;justify-content:center}
+.mobile-menu .btn--white{color:#08130e}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;border-radius:99px;
+  padding:12px 20px;font-size:13.5px;font-weight:600;line-height:1;
+  transition:transform .2s,background .2s,border-color .2s,color .2s;
+  white-space:nowrap;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn--white{background:#fff;color:#08130e}
+.btn--white:hover{background:#e8f3ee}
+.btn--ghost{border:1px solid rgba(255,255,255,.28);color:#fff;background:rgba(255,255,255,.02)}
+.btn--ghost:hover{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.06)}
+.btn svg{flex:0 0 auto}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:26px;padding:26px 18px 34px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#d7e4de;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:rgba(255,255,255,.5)}
+.hero__title{
+  font-family:var(--font-head);font-weight:800;letter-spacing:-.04em;line-height:.98;
+  font-size:clamp(42px,10.5vw,78px);margin:16px 0 0;
+}
+.hero__title .grad{
+  background:linear-gradient(100deg,#ffffff 5%,#9df3c9 55%,#25c587 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero__role{font-size:14.5px;font-weight:600;margin-top:16px;display:flex;align-items:center;gap:10px}
+.hero__role .dash{width:22px;height:1px;background:rgba(255,255,255,.55);display:inline-block}
+.hero__desc{margin-top:12px;max-width:44ch;font-size:14.5px;color:#c2cfc8;line-height:1.72}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.hero__trusted{display:flex;align-items:center;gap:12px;margin-top:26px}
+.avatars{display:flex}
+.avatars span{
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  font-size:10.5px;font-weight:700;color:#04150d;
+  border:2px solid #06281b;margin-left:-9px;
+  background:linear-gradient(140deg,#9df3c9,#0d7a4f);
+}
+.avatars span:first-child{margin-left:0}
+.avatars span:nth-child(2){background:linear-gradient(140deg,#d6efe3,#3c9c71)}
+.avatars span:nth-child(3){background:linear-gradient(140deg,#7cf0b8,#0a5a3c)}
+.avatars span:nth-child(4){background:linear-gradient(140deg,#eef7f2,#7cb69a);color:#0a2a1c}
+.trusted__label{font-size:12.5px;font-weight:600;line-height:1.35}
+.trusted__note{font-size:11.5px;color:var(--muted)}
+.hero__socials{display:flex;align-items:center;gap:8px;margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);max-width:280px}
+.soc{
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,.16);color:#cfe0d8;
+  transition:.2s;
+}
+.soc:hover{background:var(--mint);color:#04150d;border-color:var(--mint)}
+.hero__socials .social-line{flex:1;height:1px;background:rgba(255,255,255,.12);min-width:20px}
+
+/* photo */
+.hero__media{position:relative;isolation:isolate;justify-self:center;width:100%;max-width:400px}
+.hero__glow{
+  position:absolute;inset:-8% -6% -4%;z-index:-1;pointer-events:none;
+  background:radial-gradient(50% 50% at 50% 42%,rgba(21,196,124,.55),rgba(9,90,58,.28) 46%,transparent 72%);
+  filter:blur(24px);
+}
+.hero__photo{
+  position:relative;border-radius:180px 180px 26px 26px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 40px 80px -38px rgba(0,0,0,.95), inset 0 0 0 1px rgba(255,255,255,.04);
+}
+.hero__photo img{width:100%;height:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 55%;transform:scale(1.95);transform-origin:50% 55%}
+.hero__photo::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(3,35,24,.18) 0%,transparent 38%,rgba(3,18,12,.82) 100%);
+}
+.hero__chip{
+  position:absolute;left:14px;bottom:14px;z-index:2;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 14px;border-radius:99px;font-size:11.5px;font-weight:600;
+  background:rgba(6,26,18,.72);border:1px solid rgba(124,240,184,.35);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.hero__chip::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:var(--mint);
+  box-shadow:0 0 0 4px rgba(124,240,184,.18);
+}
+
+/* stats */
+.hero__stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);
+}
+.stat{padding:16px 10px}
+.stat+.stat{border-left:1px solid var(--line)}
+.stat__value{font-family:var(--font-head);font-weight:800;font-size:clamp(26px,6vw,32px);letter-spacing:-.03em;line-height:1}
+.stat__label{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-top:7px;line-height:1.4}
+
+/* ============================================================
+   SECTIONS (shared)
+   ============================================================ */
+.section{position:relative;z-index:1;padding:36px 18px;border-top:1px solid rgba(255,255,255,.07)}
+.section-label{
+  display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:#c9d8d1;
+}
+.section-label::before{content:"";width:24px;height:1px;background:rgba(255,255,255,.45)}
+.h2{
+  font-family:var(--font-head);font-weight:800;letter-spacing:-.03em;line-height:1.06;
+  font-size:clamp(28px,6.4vw,42px);margin-top:12px;
+}
+.h2--xl{text-transform:uppercase;font-size:clamp(30px,7vw,48px);letter-spacing:-.025em;line-height:1.02}
+.lead{color:#a9b7b0;font-size:14px;line-height:1.75}
+.section-head{display:flex;flex-direction:column;gap:14px;margin-bottom:22px}
+[data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+[data-reveal].is-visible{opacity:1;transform:none}
+
+/* about */
+.about__grid{display:grid;gap:18px}
+.about__text{display:grid;gap:12px;max-width:62ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
+.chip{
+  font-size:11.5px;font-weight:500;padding:7px 13px;border-radius:99px;
+  border:1px solid rgba(255,255,255,.14);color:#cfdcd5;background:rgba(255,255,255,.03);
+}
+.chip--mint{border-color:rgba(124,240,184,.4);color:var(--mint);background:rgba(124,240,184,.06)}
+
+/* services */
+.services__head{display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:24px}
+.services__grid{display:grid;gap:12px}
+.svc{
+  position:relative;display:flex;flex-direction:column;gap:8px;
+  background:linear-gradient(180deg,#181d1a,#101312);
+  border:1px solid rgba(255,255,255,.07);border-radius:20px;
+  padding:22px;min-height:0;overflow:hidden;
+  transition:transform .3s,border-color .3s,background .3s;
+}
+.svc::after{
+  content:"";position:absolute;right:-40px;top:-40px;width:120px;height:120px;border-radius:50%;
+  background:radial-gradient(circle,rgba(124,240,184,.14),transparent 70%);
+  opacity:0;transition:opacity .3s;
+}
+.svc:hover{transform:translateY(-3px);border-color:rgba(124,240,184,.28)}
+.svc:hover::after{opacity:1}
+.svc__icon{
+  width:52px;height:52px;border-radius:14px;background:#f1f5f3;color:#0a1a12;
+  display:grid;place-items:center;margin-bottom:18px;
+  box-shadow:0 10px 24px -12px rgba(0,0,0,.9), 0 2px 0 rgba(255,255,255,.6) inset;
+}
+.svc h3{font-family:var(--font-head);font-size:19px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.svc p{font-size:13px;color:var(--muted);line-height:1.6}
+.svc a{
+  margin-top:auto;padding-top:16px;font-size:12px;font-weight:600;color:#e4eee9;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.svc a span{transition:transform .25s}
+.svc:hover a span{transform:translateX(4px)}
+
+/* timeline (experience / education) */
+.tl{display:grid;gap:0;margin-top:8px}
+.tl__item{position:relative;padding:20px 0 20px 24px;border-top:1px solid var(--line)}
+.tl__item::before{
+  content:"";position:absolute;left:0;top:27px;width:8px;height:8px;border-radius:50%;
+  background:var(--green-400);box-shadow:0 0 0 4px rgba(18,164,104,.14);
+}
+.tl__item::after{
+  content:"";position:absolute;left:3.5px;top:35px;bottom:-5px;width:1px;background:rgba(255,255,255,.08);
+}
+.tl__item:last-child::after{display:none}
+.tl__date{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mint)}
+.tl__title{font-family:var(--font-head);font-size:16.5px;font-weight:700;margin-top:6px;line-height:1.3}
+.tl__org{font-size:12.5px;color:#c9d6d0;margin-top:2px}
+.tl__desc{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
+.tl__meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{
+  font-size:10.5px;font-weight:600;letter-spacing:.04em;padding:4px 9px;border-radius:6px;
+  background:rgba(124,240,184,.08);border:1px solid rgba(124,240,184,.22);color:#a9ecc9;
+}
+/* ============================================================
+   WORK / PORTFOLIO
+   ============================================================ */
+.work__head{margin-bottom:20px}
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 20px}
+.pill{
+  font-size:12px;font-weight:500;padding:8px 14px;border-radius:99px;
+  border:1px solid rgba(255,255,255,.16);color:#c9d6d0;background:rgba(255,255,255,.02);
+  transition:.2s;
+}
+.pill:hover{border-color:rgba(255,255,255,.4)}
+.pill.is-active{background:#fff;color:#08130e;border-color:#fff}
+.work__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.work-card{
+  display:flex;flex-direction:column;overflow:hidden;border-radius:18px;
+  background:#0d1210;border:1px solid rgba(255,255,255,.07);
+  transition:transform .3s,border-color .3s;
+}
+.work-card:hover{transform:translateY(-3px);border-color:rgba(124,240,184,.3)}
+.work-card[hidden]{display:none}
+.thumb{
+  position:relative;aspect-ratio:16/10;padding:14px;overflow:hidden;
+  background:radial-gradient(90% 90% at 30% 0%,#0d4230,#061610 70%);
+  display:grid;place-items:center;
+}
+.thumb::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 55%,rgba(6,14,10,.55));
+}
+.work-card__body{display:flex;flex-direction:column;gap:5px;padding:16px 16px 18px;flex:1}
+.work-card__tag{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mint)}
+.work-card h3{font-family:var(--font-head);font-size:15.5px;font-weight:700;line-height:1.3;margin-top:2px}
+.work-card p{font-size:12px;color:var(--muted);line-height:1.6}
+.work-card__more{
+  margin-top:auto;padding-top:12px;font-size:11.5px;font-weight:600;color:#dfeae4;
+  display:inline-flex;align-items:center;gap:6px;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.3);
+}
+.work-card__more:hover{text-decoration-color:var(--mint);color:var(--mint)}
+.work__more{display:flex;justify-content:center;margin-top:22px}
+
+/* mock UI thumbnails */
+.th{
+  position:relative;width:100%;height:100%;border-radius:10px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);background:#0a0f0d;
+  display:flex;flex-direction:column;box-shadow:0 14px 30px -16px rgba(0,0,0,.9);
+}
+.th__bar{display:flex;gap:4px;padding:7px 9px;background:rgba(255,255,255,.045);border-bottom:1px solid rgba(255,255,255,.07)}
+.th__bar i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.25)}
+.th__bar i:first-child{background:rgba(124,240,184,.6)}
+.th__body{flex:1;display:flex;gap:8px;padding:10px;min-height:0}
+.th__side{width:24%;display:flex;flex-direction:column;gap:6px}
+.th__side span{height:7px;border-radius:3px;background:rgba(255,255,255,.08)}
+.th__side span:first-child{background:rgba(124,240,184,.42);width:82%}
+.th__main{flex:1;display:flex;flex-direction:column;gap:7px;min-height:0}
+.th__chips{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.th__chips b{height:17px;border-radius:5px;background:rgba(124,240,184,.12);border:1px solid rgba(124,240,184,.2)}
+.th__chart{flex:1;display:flex;align-items:flex-end;gap:5px;padding-top:4px}
+.th__chart i{flex:1;height:var(--h);border-radius:3px 3px 0 0;background:linear-gradient(180deg,rgba(124,240,184,.85),rgba(18,164,104,.22))}
+.th__rows{flex:1;display:flex;flex-direction:column;gap:8px;padding:10px}
+.th__row{display:flex;align-items:center;gap:7px}
+.th__row i{width:17px;height:17px;border-radius:5px;background:rgba(124,240,184,.2);border:1px solid rgba(124,240,184,.25);flex:0 0 auto}
+.th__row span{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.1)}
+.th__row b{width:30px;height:10px;border-radius:99px;background:rgba(124,240,184,.22)}
+.th__rows .th__row:nth-child(2) b{background:rgba(255,255,255,.12)}
+.th__rows .th__row:nth-child(4) b{background:rgba(255,255,255,.12)}
+.th--art{background:radial-gradient(circle at 50% 45%,#0b3d2b,#06130e)}
+.th--art svg{width:100%;height:100%}
+.th__plan{flex:1;display:flex;flex-direction:column;gap:8px;padding:10px}
+.th__plan .row{display:flex;align-items:center;gap:7px}
+.th__plan .row b{font-size:0;width:22px;height:14px;border-radius:4px;background:rgba(124,240,184,.24);flex:0 0 auto}
+.th__plan .row span{height:6px;border-radius:3px;background:rgba(255,255,255,.1);flex:1}
+.th__plan .row:nth-child(even) b{background:rgba(255,255,255,.12)}
+.th__plan .row:nth-child(2) span{width:60%;flex:0 0 60%}
+
+/* ============================================================
+   REFERENCES
+   ============================================================ */
+.refs__track{
+  display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:2px 2px 8px;margin:0 -2px;scrollbar-width:none;
+}
+.refs__track::-webkit-scrollbar{display:none}
+.ref{
+  flex:0 0 100%;scroll-snap-align:start;display:flex;flex-direction:column;gap:12px;
+  background:linear-gradient(180deg,#121715,#0c100e);border:1px solid rgba(255,255,255,.07);
+  border-radius:18px;padding:20px;
+}
+.ref__top{display:flex;align-items:center;gap:11px}
+.ref__avatar{
+  width:40px;height:40px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;
+  font-size:12px;font-weight:700;color:#04150d;background:linear-gradient(140deg,#9df3c9,#0d7a4f);
+}
+.ref__name{font-size:13.5px;font-weight:700;line-height:1.3}
+.ref__role{font-size:11.5px;color:var(--muted)}
+.stars{display:flex;gap:3px;color:var(--mint);margin-left:auto;flex:0 0 auto}
+.stars svg{width:12px;height:12px}
+.ref__quote{font-size:12.5px;color:#b9c6c0;line-height:1.7}
+.ref__quote::before{content:"“";font-family:var(--font-head);font-size:26px;line-height:0;vertical-align:-6px;color:var(--mint);margin-right:2px}
+.refs__dots{display:flex;justify-content:center;gap:6px;margin-top:10px}
+.refs__dots button{width:6px;height:6px;border-radius:99px;background:rgba(255,255,255,.22);transition:.25s}
+.refs__dots button.is-active{width:18px;background:var(--mint)}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact__head{margin-bottom:22px}
+.form{display:grid;gap:14px}
+.field{display:grid;gap:6px}
+.field label{font-size:12px;font-weight:600;color:#d3dfd9}
+.field input,.field textarea{
+  width:100%;background:rgba(255,255,255,.04);color:#fff;
+  border:1px solid rgba(255,255,255,.13);border-radius:12px;
+  padding:13px 15px;font:inherit;font-size:13.5px;outline:none;
+  transition:border-color .2s,box-shadow .2s,background .2s;
+}
+.field textarea{min-height:120px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:#728179}
+.field input:focus,.field textarea:focus{border-color:var(--green-400);box-shadow:0 0 0 3px rgba(18,164,104,.16);background:rgba(255,255,255,.06)}
+.form .btn{justify-content:center;width:100%}
+.form__note{font-size:11.5px;line-height:1.6;color:var(--muted);min-height:18px}
+.form__note.is-ok{color:var(--mint)}
+.contact__direct{margin-top:26px;padding-top:22px;border-top:1px solid var(--line);display:grid;gap:10px}
+.contact__direct h3{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.contact-link{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:#dce7e1;width:fit-content}
+.contact-link:hover{color:var(--mint)}
+.contact-link svg{color:var(--mint);flex:0 0 auto}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:26px 20px 34px}
+.footer__inner{display:flex;flex-direction:column;gap:14px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08)}
+.footer__brand{display:flex;align-items:center;gap:8px;font-family:var(--font-head);font-weight:800;font-size:15px}
+.footer__brand::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--mint)}
+.footer p{font-size:11.5px;color:#7f8d86}
+.footer__links{display:flex;flex-wrap:wrap;gap:16px}
+.footer__links a{font-size:11.5px;color:#a9b7b0}
+.footer__links a:hover{color:var(--mint)}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (min-width:560px){
+  .services__grid{grid-template-columns:repeat(2,1fr)}
+  .work__grid{grid-template-columns:repeat(2,1fr)}
+  .ref{flex-basis:calc(50% - 5px)}
+  .form{grid-template-columns:1fr 1fr}
+  .form__full{grid-column:1/-1}
+  .form .btn{grid-column:1/-1}
+}
+@media (min-width:720px){
+  .page{padding:16px}
+  .nav{padding:15px 22px;gap:14px}
+  .brand{font-size:20px}
+  .mobile-menu{left:14px;right:14px;top:70px}
+  .hero{padding:34px 26px 40px;gap:32px}
+  .section{padding:44px 26px}
+  .panel--side{padding:30px 26px 38px;gap:52px}
+  .services__head{flex-direction:row;flex-wrap:wrap;align-items:flex-end;justify-content:space-between}
+  .services__head .services__title{flex:1 1 260px}
+  .services__head .lead{flex:1 1 220px;max-width:300px}
+  .services__grid{grid-template-columns:repeat(3,1fr)}
+  .svc{min-height:220px}
+  .about__grid{grid-template-columns:1.35fr 1fr;gap:30px}
+  .tl__item{padding-left:28px}
+  .footer__inner{flex-direction:row;align-items:center;justify-content:space-between;gap:24px}
+  .footer__brand{order:-1}
+}
+@media (min-width:1024px){
+  .page{padding:18px;max-width:1480px}
+  .shell{
+    grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px;
+    padding:18px;border-radius:40px;align-items:start;
+    background:linear-gradient(180deg,#eef1ef,#dfe4e1);
+    box-shadow:0 50px 120px -60px rgba(0,0,0,.9);
+  }
+  .panel{border-radius:26px}
+  .nav{border-radius:26px 26px 0 0;padding:16px 26px}
+  .hero{grid-template-columns:minmax(0,1.06fr) minmax(0,.8fr);align-items:center;gap:24px;padding:38px 30px 44px}
+  .hero__stats{grid-column:1/-1;margin-top:6px}
+  .hero__media{max-width:360px}
+  .hero__title{font-size:clamp(50px,5.4vw,72px)}
+  .section{padding:48px 30px}
+  .panel--side{padding:34px 30px 42px}
+  .work__grid{grid-template-columns:repeat(2,1fr)}
+  .refs__dots{display:none}
+  .footer{padding:30px 40px 38px}
+}
+@media (min-width:1180px){
+  .hero{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr) 158px;gap:24px;padding:42px 34px 46px}
+  .hero__stats{
+    grid-column:auto;display:flex;flex-direction:column;
+    border-top:0;border-bottom:0;border-left:1px solid var(--line-strong);
+    padding-left:22px;justify-content:center;gap:4px;
+  }
+  .stat+.stat{border-left:0;border-top:1px solid var(--line)}
+  .stat{padding:18px 0}
+  .stat__value{font-size:34px;text-align:right}
+  .stat__label{text-align:right;font-size:10px}
+  .hero__media{max-width:340px;justify-self:end}
+}
+@media (min-width:1320px){
+  .hero__media{max-width:380px}
+}
+@media (min-width:1360px){
+  .nav__links{display:flex;gap:2px}
+  .nav__links a{white-space:nowrap;padding:8px 10px}
+  .burger{display:none}
+  .nav .nav__cta{display:inline-flex}
+  .mobile-menu{display:none!important}
+}
+@media (hover:none){
+  .svc:hover,.work-card:hover{transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  [data-reveal]{opacity:1;transform:none}
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
+<div class="page">
+  <div class="shell">
+
+    <!-- ================= MAIN PANEL ================= -->
+    <main class="panel panel--main" id="main">
+
+      <header class="nav" id="nav">
+        <a class="brand" href="#home" aria-label="Anthony Murillo Zapata">anthony<em>mz</em></a>
+
+        <nav class="nav__links" aria-label="Main navigation">
+          <a href="#home" data-i18n="nav.home">Home</a>
+          <a href="#about" data-i18n="nav.about">About me</a>
+          <a href="#services" data-i18n="nav.services">Service</a>
+          <a href="#experience" data-i18n="nav.experience">Experience</a>
+          <a href="#work" data-i18n="nav.work">Work</a>
+        </nav>
+
+        <div class="nav__actions">
+          <div class="lang" role="group" aria-label="Language">
+            <button class="lang__btn is-active" type="button" data-lang="en">EN</button>
+            <button class="lang__btn" type="button" data-lang="es">ES</button>
+          </div>
+          <a href="#contact" class="btn btn--white nav__cta" data-i18n="nav.contact">Contact</a>
+          <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mobileMenu" data-i18n-aria="nav.menu" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </header>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" data-i18n="nav.home">Home</a>
+        <a href="#about" data-i18n="nav.about">About me</a>
+        <a href="#services" data-i18n="nav.services">Service</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#work" data-i18n="nav.work">Work</a>
+        <a href="#contact" class="btn btn--white" data-i18n="nav.contact">Contact</a>
+      </div>
+
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="hero__text">
+          <p class="eyebrow" data-i18n="hero.badge">Aerospace Engineering Student</p>
+          <h1 class="hero__title">
+            <span data-i18n="hero.hi">Hi!</span> <span class="grad" data-i18n="hero.name">Anthony</span>
+          </h1>
+          <p class="hero__role"><span class="dash"></span><span data-i18n="hero.role">Aerospace Engineering Student</span></p>
+          <p class="hero__desc" data-i18n="hero.desc">I'm studying Aerospace Engineering at the University of Manchester, with hands-on experience in vehicle maintenance, logistics and high-pressure operations. I'm looking for an internship where I can turn theory into real engineering.</p>
+
+          <div class="hero__ctas">
+            <a href="#contact" class="btn btn--white">
+              <span data-i18n="hero.cta1">Let's Talk</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            <a href="Anthony-Murillo-Zapata-CV.pdf" download class="btn btn--ghost">
+              <span data-i18n="hero.cta2">Download CV</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v10m0 0 4-4m-4 4-4-4M5 19h14"/></svg>
+            </a>
+          </div>
+
+          <div class="hero__trusted">
+            <div class="avatars" aria-hidden="true"><span>AM</span><span>JC</span><span>RS</span><span>+9</span></div>
+            <div>
+              <p class="trusted__label" data-i18n="hero.trusted">Open to internships</p>
+              <p class="trusted__note" data-i18n="hero.trustedNote">UK &amp; remote · 2026</p>
+            </div>
+          </div>
+
+          <div class="hero__socials">
+            <a class="soc" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10v7M8 7v.01M12 17v-4a2.5 2.5 0 0 1 5 0v4"/></svg>
+            </a>
+            <a class="soc" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4 1.2-4-2-5.5-2.5M15 21v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.7 4.7 0 0 0-1.3-3.3 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.8 2.8 5.7 3.1 5.7 3.1a4.3 4.3 0 0 0-.1 3.2A4.7 4.7 0 0 0 4.3 9.6c0 4.6 2.7 5.7 5.5 6-.4.4-.6 1-.5 1.7V21"/></svg>
+            </a>
+            <a class="soc" href="mailto:anthony@example.com" aria-label="Email">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></svg>
+            </a>
+            <span class="social-line"></span>
+          </div>
+        </div>
+
+        <div class="hero__media">
+          <span class="hero__glow" aria-hidden="true"></span>
+          <div class="hero__photo">
+            <img src="foto.jpeg" alt="Anthony Murillo Zapata" data-i18n-alt="hero.photoAlt" width="960" height="1280" fetchpriority="high" />
+            <span class="hero__chip" data-i18n="hero.chip">Open to internships</span>
+          </div>
+        </div>
+
+        <div class="hero__stats">
+          <div class="stat">
+            <p class="stat__value">07+</p>
+            <p class="stat__label" data-i18n="stats.1">Years of experience</p>
+          </div>
+          <div class="stat">
+            <p class="stat__value">06+</p>
+            <p class="stat__label" data-i18n="stats.2">Roles &amp; placements</p>
+          </div>
+          <div class="stat">
+            <p class="stat__value">03+</p>
+            <p class="stat__label" data-i18n="stats.3">Industries worked in</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section" id="about" data-reveal>
+        <div class="section-head">
+          <p class="section-label" data-i18n="about.label">About me</p>
+          <h2 class="h2" data-i18n="about.title">Engineer in the making, hands-on from day one.</h2>
+        </div>
+        <div class="about__grid">
+          <div class="about__text">
+            <p class="lead" data-i18n="about.p1">I'm Anthony, an Aerospace Engineering student at the University of Manchester. Before university I spent seven years in the workshop: servicing heavy goods vehicles, managing parts stock and keeping customers happy.</p>
+            <p class="lead" data-i18n="about.p2">That mix of academic and hands-on experience is what I bring: I can read a drawing, diagnose a fault and explain it clearly to a team. I'm currently looking for an internship in aerospace, automotive or energy.</p>
+          </div>
+          <div class="chips" id="aboutChips"></div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="section" id="services" data-reveal>
+        <div class="services__head">
+          <div class="services__title">
+            <p class="section-label" data-i18n="services.label">My service</p>
+            <h2 class="h2 h2--xl" data-i18n="services.title">What I'm offering</h2>
+          </div>
+          <p class="lead" data-i18n="services.desc">Three things I do well — from a CAD model on screen to a vehicle on the ramp.</p>
+          <a href="#experience" class="btn btn--white" data-i18n="services.btn">All services</a>
+        </div>
+        <div class="services__grid" id="servicesGrid"></div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="section" id="experience" data-reveal>
+        <div class="section-head">
+          <p class="section-label" data-i18n="exp.label">Work experience</p>
+          <h2 class="h2" data-i18n="exp.title">Seven years of getting my hands dirty.</h2>
+          <p class="lead" data-i18n="exp.desc">From the workshop floor to the parts desk and the shop counter — every role taught me something I use in engineering.</p>
+        </div>
+        <div class="tl" id="experienceList"></div>
+      </section>
+
+      <!-- REFERENCES -->
+      <section class="section refs" id="references" data-reveal>
+        <div class="section-head">
+          <p class="section-label" data-i18n="refs.label">References</p>
+          <h2 class="h2" data-i18n="refs.title">What people say about my work</h2>
+          <p class="lead" data-i18n="refs.desc">References available on request from my shop and workshop placements.</p>
+        </div>
+        <div class="refs__track" id="refsTrack"></div>
+        <div class="refs__dots" id="refsDots"></div>
+      </section>
+    </main>
+
+    <!-- ================= SIDE PANEL ================= -->
+    <aside class="panel panel--side">
+
+      <!-- WORK -->
+      <section class="work" id="work" data-reveal>
+        <div class="work__head">
+          <p class="section-label" data-i18n="work.label">Portfolio</p>
+          <h2 class="h2" data-i18n="work.title">Let's have a look at my work</h2>
+          <p class="lead" data-i18n="work.desc">University, workshop and community projects — a mix of engineering, operations and leadership.</p>
+        </div>
+        <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+        <div class="work__grid" id="workGrid"></div>
+        <div class="work__more">
+          <button class="btn btn--white" type="button" id="viewMore" data-i18n="work.viewMore">View more</button>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="edu" id="education" data-reveal>
+        <div class="section-head">
+          <p class="section-label" data-i18n="edu.label">Education</p>
+          <h2 class="h2" data-i18n="edu.title">A path built step by step.</h2>
+        </div>
+        <div class="tl" id="educationList"></div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact" id="contact" data-reveal>
+        <div class="contact__head">
+          <p class="section-label" data-i18n="contact.label">Contact</p>
+          <h2 class="h2" data-i18n="contact.title">Let's talk</h2>
+          <p class="lead" data-i18n="contact.desc">Are you interested in working together? Send me a message and I'll reply within 24 hours.</p>
+        </div>
+
+        <form class="form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="email" data-i18n="contact.email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@email.com" data-i18n-placeholder="contact.emailPh" />
+          </div>
+          <div class="field form__full">
+            <label for="message" data-i18n="contact.msg">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell me about the role or project..." data-i18n-placeholder="contact.msgPh"></textarea>
+          </div>
+          <button type="submit" class="btn btn--white">
+            <span data-i18n="contact.send">Send message</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-8-8 18-2.5-7.5L3 11Z"/></svg>
+          </button>
+          <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="contact__direct">
+          <h3 data-i18n="contact.direct">Or reach me directly</h3>
+          <a class="contact-link" href="mailto:anthony@example.com">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></svg>
+            anthony@example.com
+          </a>
+          <a class="contact-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10v7M8 7v.01M12 17v-4a2.5 2.5 0 0 1 5 0v4"/></svg>
+            linkedin.com/in/anthony
+          </a>
+          <span class="contact-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span data-i18n="contact.location">Manchester, United Kingdom</span>
+          </span>
+        </div>
+      </section>
+    </aside>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__brand">anthony<span style="color:var(--mint)">mz</span></span>
+    <p>© <span id="year">2026</span> Anthony Murillo Zapata. <span data-i18n="footer.rights">All rights reserved.</span></p>
+    <div class="footer__links">
+      <a href="#work" data-i18n="nav.work">Work</a>
+      <a href="#experience" data-i18n="nav.experience">Experience</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="Anthony-Murillo-Zapata-CV.pdf" download data-i18n="footer.cv">Download CV</a>
+    </div>
+  </div>
+</footer>
+<script>
+/* ============================================================
+   ICONS
+   ============================================================ */
+const ICONS = {
+  rocket:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 2.2 4.5 5.6 4.5 9.2L12 17l-4.5-4.8C7.5 8.6 9 5.2 12 3Z"/><circle cx="12" cy="9" r="1.6"/><path d="M7.8 13.5 5 17l3.7-.5M16.2 13.5 19 17l-3.7-.5"/><path d="M10 18.5c.4 1.6 1 3 2 4.5 1-1.5 1.6-2.9 2-4.5"/></svg>',
+  wrench:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 1 5.3 5.3l-2.2-2.2-3 .6.6-3-2.2-2.2a4 4 0 0 1 1.5 1.5Z"/><path d="M12.7 10.3 4 19v1h1l8.7-8.7"/></svg>',
+  users:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3 2.8-4.6 5.5-4.6s4.9 1.6 5.5 4.6"/><path d="M16 5.4a3 3 0 0 1 0 5.6M17.5 14.6c1.8.6 3 2.1 3.4 4.4"/></svg>',
+  star:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 3 2.6 5.6 6 .8-4.4 4.2 1.1 6L12 16.7 6.7 19.6l1.1-6L3.4 9.4l6-.8Z"/></svg>'
+};
+
+/* ============================================================
+   TRANSLATIONS
+   ============================================================ */
+const I18N = {
+  en: {
+    'meta.title':'Anthony Murillo Zapata — Aerospace Engineering Portfolio',
+    'meta.desc':'Portfolio of Anthony Murillo Zapata, Aerospace Engineering student at the University of Manchester. CAD, maintenance, operations and leadership.',
+    'a11y.skip':'Skip to content',
+    'nav.home':'Home','nav.about':'About me','nav.services':'Service','nav.work':'Work',
+    'nav.experience':'Experience','nav.contact':'Contact','nav.menu':'Open menu',
+    'hero.badge':'Aerospace Engineering Student',
+    'hero.hi':'Hi!','hero.name':'Anthony',
+    'hero.role':'Aerospace Engineering Student',
+    'hero.desc':"I'm studying Aerospace Engineering at the University of Manchester, with hands-on experience in vehicle maintenance, logistics and high-pressure operations. I'm looking for an internship where I can turn theory into real engineering.",
+    'hero.cta1':"Let's Talk",'hero.cta2':'Download CV',
+    'hero.trusted':'Open to internships','hero.trustedNote':'UK & remote · 2026',
+    'hero.chip':'Open to internships',
+    'hero.photoAlt':'Portrait of Anthony Murillo Zapata',
+    'stats.1':'Years of experience','stats.2':'Roles & placements','stats.3':'Industries',
+    'about.label':'About me',
+    'about.title':'Engineer in the making, hands-on from day one.',
+    'about.p1':"I'm Anthony, an Aerospace Engineering student at the University of Manchester. Before university I spent seven years in the workshop: servicing heavy goods vehicles, managing parts stock and keeping customers happy.",
+    'about.p2':"That mix of academic and hands-on experience is what I bring: I can read a drawing, diagnose a fault and explain it clearly to a team. I'm currently looking for an internship in aerospace, automotive or energy.",
+    'services.label':'My service',
+    'services.title':"What I'm offering",
+    'services.desc':'Three things I do well — from a CAD model on screen to a vehicle on the ramp.',
+    'services.btn':'All services','services.readmore':'Read more',
+    'exp.label':'Work experience',
+    'exp.title':'Seven years of getting my hands dirty.',
+    'exp.desc':'From the workshop floor to the parts desk and the shop counter — every role taught me something I use in engineering.',
+    'edu.label':'Education','edu.title':'A path built step by step.',
+    'work.label':'Portfolio','work.title':"Let's have a look at my work",
+    'work.desc':'University, workshop and community projects — a mix of engineering, operations and leadership.',
+    'work.viewMore':'View more','work.less':'View less','work.see':'See more',
+    'filter.all':'All','filter.aero':'Aerospace','filter.auto':'Automotive','filter.ops':'Operations',
+    'refs.label':'References','refs.title':'What people say about my work',
+    'refs.desc':'References available on request from my shop and workshop placements.',
+    'contact.label':'Contact','contact.title':"Let's talk",
+    'contact.desc':"Are you interested in working together? Send me a message and I'll reply within 24 hours.",
+    'contact.email':'Email','contact.emailPh':'you@email.com',
+    'contact.msg':'Message','contact.msgPh':'Tell me about the role or project...',
+    'contact.send':'Send message',
+    'contact.success':'Thanks! Your message is ready — your email app should open. If not, write to anthony@example.com.',
+    'contact.direct':'Or reach me directly','contact.location':'Manchester, United Kingdom',
+    'footer.rights':'All rights reserved.','footer.cv':'Download CV'
+  },
+  es: {
+    'meta.title':'Anthony Murillo Zapata — Portafolio de Ingeniería Aeroespacial',
+    'meta.desc':'Portafolio de Anthony Murillo Zapata, estudiante de Ingeniería Aeroespacial en la Universidad de Manchester. CAD, mantenimiento, operaciones y liderazgo.',
+    'a11y.skip':'Ir al contenido',
+    'nav.home':'Inicio','nav.about':'Sobre mí','nav.services':'Servicios','nav.work':'Proyectos',
+    'nav.experience':'Experiencia','nav.contact':'Contacto','nav.menu':'Abrir menú',
+    'hero.badge':'Estudiante de Ingeniería Aeroespacial',
+    'hero.hi':'¡Hola!','hero.name':'Anthony',
+    'hero.role':'Estudiante de Ingeniería Aeroespacial',
+    'hero.desc':'Estudio Ingeniería Aeroespacial en la Universidad de Manchester, con experiencia práctica en mantenimiento de vehículos, logística y operaciones de alta presión. Busco unas prácticas donde convertir la teoría en ingeniería real.',
+    'hero.cta1':'Hablemos','hero.cta2':'Descargar CV',
+    'hero.trusted':'Disponible para prácticas','hero.trustedNote':'Reino Unido y remoto · 2026',
+    'hero.chip':'Disponible para prácticas',
+    'hero.photoAlt':'Retrato de Anthony Murillo Zapata',
+    'stats.1':'Años de experiencia','stats.2':'Puestos y prácticas','stats.3':'Sectores',
+    'about.label':'Sobre mí',
+    'about.title':'Un ingeniero en formación, con las manos en el taller desde el primer día.',
+    'about.p1':'Soy Anthony, estudiante de Ingeniería Aeroespacial en la Universidad de Manchester. Antes de la universidad pasé siete años en el taller: mantenimiento de vehículos pesados, gestión de repuestos y atención al cliente.',
+    'about.p2':'Esa mezcla de formación académica y experiencia práctica es lo que aporto: sé leer un plano, diagnosticar una avería y explicarla con claridad a un equipo. Ahora busco unas prácticas en los sectores aeroespacial, automotriz o energético.',
+    'services.label':'Mis servicios',
+    'services.title':'Lo que ofrezco',
+    'services.desc':'Tres cosas que hago bien: del modelo CAD en pantalla al vehículo en el taller.',
+    'services.btn':'Ver todos','services.readmore':'Leer más',
+    'exp.label':'Experiencia laboral',
+    'exp.title':'Siete años con las manos en la masa.',
+    'exp.desc':'Del taller al mostrador de repuestos y a la tienda: cada puesto me enseñó algo que aplico en la ingeniería.',
+    'edu.label':'Formación','edu.title':'Un camino construido paso a paso.',
+    'work.label':'Portafolio','work.title':'Echa un vistazo a mis proyectos',
+    'work.desc':'Proyectos universitarios, de taller y comunitarios: ingeniería, operaciones y liderazgo.',
+    'work.viewMore':'Ver más','work.less':'Ver menos','work.see':'Ver más',
+    'filter.all':'Todos','filter.aero':'Aeroespacial','filter.auto':'Automoción','filter.ops':'Operaciones',
+    'refs.label':'Referencias','refs.title':'Lo que dicen de mi trabajo',
+    'refs.desc':'Referencias disponibles a petición de mis trabajos en tienda y taller.',
+    'contact.label':'Contacto','contact.title':'Hablemos',
+    'contact.desc':'¿Te interesa trabajar juntos? Escríbeme y te responderé en menos de 24 horas.',
+    'contact.email':'Email','contact.emailPh':'tu@email.com',
+    'contact.msg':'Mensaje','contact.msgPh':'Cuéntame sobre el puesto o el proyecto...',
+    'contact.send':'Enviar mensaje',
+    'contact.success':'¡Gracias! Tu mensaje está listo: se abrirá tu aplicación de correo. Si no ocurre, escribe a anthony@example.com.',
+    'contact.direct':'O contáctame directamente','contact.location':'Manchester, Reino Unido',
+    'footer.rights':'Todos los derechos reservados.','footer.cv':'Descargar CV'
+  }
+};
+
+/* ============================================================
+   THUMBNAIL MOCKUPS
+   ============================================================ */
+const THUMBS = {
+  dash:'<div class="th"><div class="th__bar"><i></i><i></i><i></i></div><div class="th__body"><div class="th__side"><span></span><span></span><span></span><span></span></div><div class="th__main"><div class="th__chips"><b></b><b></b><b></b></div><div class="th__chart"><i style="--h:38%"></i><i style="--h:62%"></i><i style="--h:48%"></i><i style="--h:82%"></i><i style="--h:58%"></i><i style="--h:72%"></i></div></div></div></div>',
+  list:'<div class="th"><div class="th__bar"><i></i><i></i><i></i></div><div class="th__rows"><div class="th__row"><i></i><span></span><b></b></div><div class="th__row"><i></i><span></span><b></b></div><div class="th__row"><i></i><span></span><b></b></div><div class="th__row"><i></i><span></span><b></b></div></div></div>',
+  plan:'<div class="th"><div class="th__bar"><i></i><i></i><i></i></div><div class="th__plan"><div class="row"><b></b><span></span></div><div class="row"><b></b><span></span></div><div class="row"><b></b><span></span></div><div class="row"><b></b><span></span></div></div></div>',
+  cad:'<div class="th th--art"><svg viewBox="0 0 200 120" fill="none" stroke="rgba(124,240,184,.6)" stroke-width="1.2" aria-hidden="true"><defs><pattern id="gcad" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0H0V14" stroke="rgba(255,255,255,.06)"/></pattern></defs><rect width="200" height="120" fill="url(#gcad)"/><path d="M100 18 162 46 100 74 38 46Z" stroke="rgba(124,240,184,.85)"/><path d="M100 18v28M38 46v26l62 28 62-28V46M100 74v26" stroke="rgba(124,240,184,.45)"/><circle cx="100" cy="56" r="34" stroke-dasharray="3 5"/><circle cx="100" cy="56" r="3" fill="#7cf0b8" stroke="none"/><path d="M22 96h46M132 96h46" stroke="rgba(255,255,255,.12)"/></svg></div>',
+  gauge:'<div class="th th--art"><svg viewBox="0 0 200 120" fill="none" aria-hidden="true"><circle cx="100" cy="56" r="36" stroke="rgba(255,255,255,.1)" stroke-width="8"/><circle cx="100" cy="56" r="36" stroke="#7cf0b8" stroke-width="8" stroke-linecap="round" stroke-dasharray="142 230" transform="rotate(-90 100 56)"/><circle cx="100" cy="56" r="20" stroke="rgba(255,255,255,.14)" stroke-width="3"/><line x1="100" y1="56" x2="100" y2="36" stroke="#7cf0b8" stroke-width="2.4" stroke-linecap="round"/><circle cx="100" cy="56" r="3" fill="#7cf0b8"/><g stroke="rgba(255,255,255,.18)"><line x1="34" y1="100" x2="166" y2="100"/><line x1="34" y1="109" x2="128" y2="109"/></g><g stroke="#7cf0b8" stroke-width="3" stroke-linecap="round"><line x1="34" y1="100" x2="88" y2="100"/><line x1="34" y1="109" x2="64" y2="109"/></g></svg></div>',
+  flow:'<div class="th th--art"><svg viewBox="0 0 200 120" fill="none" aria-hidden="true"><g stroke="rgba(124,240,184,.55)" stroke-width="1.2"><rect x="14" y="16" width="54" height="24" rx="6" fill="rgba(124,240,184,.09)"/><rect x="116" y="16" width="70" height="24" rx="6" fill="rgba(255,255,255,.04)"/><rect x="64" y="72" width="72" height="24" rx="6" fill="rgba(124,240,184,.09)"/><path d="M68 28h48M151 40v18H100v14" stroke-dasharray="4 4"/><circle cx="151" cy="58" r="2.5" fill="#7cf0b8" stroke="none"/><path d="M28 28h26M132 28h40M78 84h44" stroke="rgba(255,255,255,.18)"/></g></svg></div>'
+};
+
+/* ============================================================
+   CONTENT DATA
+   ============================================================ */
+const DATA = {
+  services: {
+    en: [
+      { icon:'rocket', title:'Aerospace Design & CAD', sub:'3D modelling, drawings & analysis' },
+      { icon:'wrench', title:'Maintenance & Diagnostics', sub:'Vehicle systems, servicing & fault-finding' },
+      { icon:'users',  title:'Operations & Leadership', sub:'Logistics, stock control & events' }
+    ],
+    es: [
+      { icon:'rocket', title:'Diseño aeroespacial y CAD', sub:'Modelado 3D, planos y análisis' },
+      { icon:'wrench', title:'Mantenimiento y diagnóstico', sub:'Sistemas de vehículos, servicio y averías' },
+      { icon:'users',  title:'Operaciones y liderazgo', sub:'Logística, control de stock y eventos' }
+    ]
+  },
+  tags: {
+    en: { aero:'Aerospace', auto:'Automotive', ops:'Operations' },
+    es: { aero:'Aeroespacial', auto:'Automoción', ops:'Operaciones' }
+  },
+  work: {
+    en: [
+      { tag:'aero', thumb:'cad',   title:'Rotor Assembly Model', desc:'Parametric CAD model of a rotor assembly built for a university design module.' },
+      { tag:'auto', thumb:'list',  title:'HGV Servicing Plan', desc:'Preventive maintenance schedule and inspection checklist for heavy goods vehicles.' },
+      { tag:'ops',  thumb:'dash',  title:'Parts Stock Dashboard', desc:'Live stock levels, procurement and margin tracking for a busy workshop.' },
+      { tag:'aero', thumb:'gauge', title:'Flight Dynamics Study', desc:'Stability and aerodynamic analysis of lifting surfaces with hand calculations.' },
+      { tag:'ops',  thumb:'plan',  title:'Event Run Sheet', desc:"Logistics, suppliers and volunteer planning for residents' association events." },
+      { tag:'auto', thumb:'flow',  title:'Fault Diagnosis Flow', desc:'Root-cause analysis flow for drivetrain and electrical faults.' },
+      { tag:'aero', thumb:'gauge', title:'Renewable Energy Notes', desc:'Research on solar and wind systems for the UK space and energy sector.' },
+      { tag:'ops',  thumb:'plan',  title:'Residents Handover Pack', desc:'Deputy Chair handover: events calendar, budget and community contacts.' }
+    ],
+    es: [
+      { tag:'aero', thumb:'cad',   title:'Modelo de rotor', desc:'Modelo CAD paramétrico de un rotor para un módulo de diseño universitario.' },
+      { tag:'auto', thumb:'list',  title:'Plan de mantenimiento HGV', desc:'Programa de mantenimiento preventivo y lista de inspección para vehículos pesados.' },
+      { tag:'ops',  thumb:'dash',  title:'Panel de stock de repuestos', desc:'Niveles de stock en vivo, compras y margen para un taller concurrido.' },
+      { tag:'aero', thumb:'gauge', title:'Estudio de dinámica de vuelo', desc:'Análisis de estabilidad y aerodinámica de superficies sustentadoras con cálculos manuales.' },
+      { tag:'ops',  thumb:'plan',  title:'Hoja de eventos', desc:'Logística, proveedores y voluntarios para eventos de la asociación de residentes.' },
+      { tag:'auto', thumb:'flow',  title:'Diagrama de diagnóstico', desc:'Análisis de causa raíz de fallos en transmisión y sistema eléctrico.' },
+      { tag:'aero', thumb:'gauge', title:'Notas de energía renovable', desc:'Investigación sobre sistemas solares y eólicos para el sector espacial y energético del Reino Unido.' },
+      { tag:'ops',  thumb:'plan',  title:'Dossier de traspaso', desc:'Traspaso de Vicepresidencia: calendario de eventos, presupuesto y contactos.' }
+    ]
+  },
+  refs: {
+    en: [
+      { initials:'SM', name:'Store Manager', role:'Spar Shop', quote:'Anthony was reliable, honest and always happy to help customers. He never missed a shift and took real pride in keeping the shop running.' },
+      { initials:'WM', name:'Workshop Manager', role:'NAME Commercials', quote:'He learned fast, worked safely and took responsibility for the parts store early on. He would be an asset to any engineering team.' }
+    ],
+    es: [
+      { initials:'SM', name:'Encargada de tienda', role:'Spar Shop', quote:'Anthony era responsable, honesto y siempre dispuesto a ayudar a los clientes. Nunca faltó a un turno y cuidaba la tienda como si fuera suya.' },
+      { initials:'WM', name:'Jefe de taller', role:'NAME Commercials', quote:'Aprendió rápido, trabajó con seguridad y asumió la responsabilidad del almacén de repuestos muy pronto. Sería un gran fichaje para cualquier equipo de ingeniería.' }
+    ]
+  },
+  chips: {
+    en: ['University of Manchester','Aerospace Engineering','CAD & simulation','Vehicle diagnostics','Stock & procurement','Event leadership'],
+    es: ['Universidad de Manchester','Ingeniería Aeroespacial','CAD y simulación','Diagnóstico de vehículos','Stock y compras','Liderazgo de eventos']
+  },
+  exp: {
+    en: [
+      { date:'Nov 2014 – Sep 2015', title:'Shop Assistant', org:'Spar Shop', desc:'Managed the tills, handled money and kept shelves stocked. Also supported the owner with the morning paper round for the final three months.', tags:['Customer service','Cash handling'] },
+      { date:'Aug 2014 – Dec 2014', title:'Kitchen Porter', org:'Restaurant', desc:'Kept the kitchen clean and organised, supported the head chef and prepared vegetables during service.', tags:['Catering','Teamwork'] },
+      { date:'Jun 2013 – Aug 2014', title:'Parts & Store Manager', org:'NAME Commercials', desc:'Managed warehouse stock and sourcing, handled customer sales and warranty issues, and kept records that protected profit margins.', tags:['Stock control','Procurement','Sales'] },
+      { date:'Jun 2010 – Jun 2013', title:'Apprentice / Technician', org:'NAME Commercials', desc:'Serviced and repaired heavy goods vehicles, carried out road-safety inspections and completed a Level 2 NVQ at college one day a week.', tags:['HGV','Diagnostics','NVQ Level 2'] },
+      { date:'May 2009', title:'Work Experience', org:'Penventon Park Hotel', desc:'Two weeks supporting the kitchen, housekeeping, reception and functions teams at a busy hotel in Cornwall.', tags:['Hospitality','Multi-team'] }
+    ],
+    es: [
+      { date:'Nov 2014 – Sep 2015', title:'Dependiente', org:'Spar Shop', desc:'Atención en caja, manejo de efectivo y reposición de estanterías. Los últimos tres meses también ayudé al dueño con el reparto de prensa.', tags:['Atención al cliente','Manejo de efectivo'] },
+      { date:'Ago 2014 – Dic 2014', title:'Ayudante de cocina', org:'Restaurante', desc:'Mantuve la cocina limpia y organizada, apoyé al jefe de cocina y preparé verduras durante el servicio.', tags:['Hostelería','Trabajo en equipo'] },
+      { date:'Jun 2013 – Ago 2014', title:'Responsable de repuestos y almacén', org:'NAME Commercials', desc:'Gestioné stock y compras, ventas a clientes y garantías, y mantuve registros que protegían el margen de beneficio.', tags:['Control de stock','Compras','Ventas'] },
+      { date:'Jun 2010 – Jun 2013', title:'Aprendiz / Técnico', org:'NAME Commercials', desc:'Mantenimiento y reparación de vehículos pesados, inspecciones de seguridad vial y NVQ de nivel 2 asistiendo un día por semana a la universidad.', tags:['Vehículos pesados','Diagnóstico','NVQ nivel 2'] },
+      { date:'May 2009', title:'Prácticas', org:'Penventon Park Hotel', desc:'Dos semanas apoyando a los equipos de cocina, limpieza, recepción y eventos en un hotel de Cornualles.', tags:['Hostelería','Equipos'] }
+    ]
+  },
+  edu: {
+    en: [
+      { date:'2015 – Current', title:'BEng / MEng, Aerospace Engineering', org:'University of Manchester', desc:'Aerospace Engineering with a Foundation Year. Aerodynamics, structures, propulsion and engineering mathematics.', tags:['Aerospace','Structures','Propulsion'] },
+      { date:'2014 – 2015', title:'Level 3 Access to HE, Engineering Science', org:'College', desc:'9 Distinctions and 6 Merits in Engineering Science; 15 Distinctions in Physics; 6 Distinctions and 9 Merits in Maths.', tags:['Distinctions','Physics','Maths'] },
+      { date:'2010 – 2012', title:'Level 2 NVQ, HGV Vehicle Maintenance & Repair', org:'College', desc:'Diploma covering heavy vehicle servicing, diagnostics and workshop practice.', tags:['NVQ Level 2','HGV'] },
+      { date:'2006 – 2010', title:'GCSEs', org:'School', desc:'English (C), Business Studies (B), Maths (C), Catering (C), Additional Science (C) and Engineering Double Award (B, C).', tags:['GCSE','Engineering'] }
+    ],
+    es: [
+      { date:'2015 – Actualidad', title:'BEng / MEng, Ingeniería Aeroespacial', org:'Universidad de Manchester', desc:'Ingeniería Aeroespacial con año de fundamentos. Aerodinámica, estructuras, propulsión y matemáticas de ingeniería.', tags:['Aeroespacial','Estructuras','Propulsión'] },
+      { date:'2014 – 2015', title:'Nivel 3 Access to HE, Ciencias de la Ingeniería', org:'College', desc:'9 Sobresalientes y 6 Notables en Ciencias de la Ingeniería; 15 Sobresalientes en Física; 6 Sobresalientes y 9 Notables en Matemáticas.', tags:['Sobresalientes','Física','Matemáticas'] },
+      { date:'2010 – 2012', title:'NVQ Nivel 2, Mantenimiento y Reparación de Vehículos Pesados', org:'College', desc:'Diploma de mantenimiento, diagnóstico y práctica de taller de vehículos pesados.', tags:['NVQ Nivel 2','Vehículos pesados'] },
+      { date:'2006 – 2010', title:'GCSEs', org:'Escuela', desc:'Inglés (C), Empresa (B), Matemáticas (C), Hostelería (C), Ciencias Adicionales (C) y Doble titulación de Ingeniería (B, C).', tags:['GCSE','Ingeniería'] }
+    ]
+  }
+};
+
+/* ============================================================
+   APP
+   ============================================================ */
+(function () {
+  const $  = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => Array.prototype.slice.call(c.querySelectorAll(s));
+
+  const servicesGrid = $('#servicesGrid');
+  const workGrid     = $('#workGrid');
+  const filtersEl    = $('#filters');
+  const viewMore     = $('#viewMore');
+  const refsTrack    = $('#refsTrack');
+  const refsDots     = $('#refsDots');
+  const chipsEl      = $('#aboutChips');
+  const form         = $('#contactForm');
+  const formNote     = $('#formNote');
+  const burger       = $('#burger');
+  const mobileMenu   = $('#mobileMenu');
+
+  let lang = 'en';
+  let filter = 'all';
+  let expanded = false;
+  let t = I18N.en;
+
+  /* ---------- renderers ---------- */
+  function renderChips() {
+    chipsEl.innerHTML = DATA.chips[lang]
+      .map((c, i) => '<span class="chip' + (i === 0 ? ' chip--mint' : '') + '">' + c + '</span>')
+      .join('');
+  }
+
+  function renderServices() {
+    servicesGrid.innerHTML = DATA.services[lang].map(function (s) {
+      return '<article class="svc">' +
+        '<span class="svc__icon">' + ICONS[s.icon] + '</span>' +
+        '<h3>' + s.title + '</h3>' +
+        '<p>' + s.sub + '</p>' +
+        '<a href="#experience">' + t['services.readmore'] + ' <span aria-hidden="true">→</span></a>' +
+      '</article>';
+    }).join('');
+  }
+
+  function renderFilters() {
+    const keys = ['all', 'aero', 'auto', 'ops'];
+    filtersEl.innerHTML = keys.map(function (k) {
+      return '<button type="button" class="pill' + (k === filter ? ' is-active' : '') + '" data-filter="' + k + '" aria-pressed="' + (k === filter) + '">' + t['filter.' + k] + '</button>';
+    }).join('');
+  }
+
+  function renderWork() {
+    workGrid.innerHTML = DATA.work[lang].map(function (w) {
+      return '<article class="work-card" data-tag="' + w.tag + '">' +
+        '<div class="thumb">' + THUMBS[w.thumb] + '</div>' +
+        '<div class="work-card__body">' +
+          '<span class="work-card__tag">' + DATA.tags[lang][w.tag] + '</span>' +
+          '<h3>' + w.title + '</h3>' +
+          '<p>' + w.desc + '</p>' +
+          '<a class="work-card__more" href="#contact">' + t['work.see'] + ' <span aria-hidden="true">↗</span></a>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+    syncWork();
+  }
+
+  function syncWork() {
+    $$('.work-card', workGrid).forEach(function (card, i) {
+      const matches = filter === 'all' || card.dataset.tag === filter;
+      const limited = filter === 'all' && !expanded && i >= 6;
+      card.hidden = !matches || limited;
+    });
+    viewMore.style.display = filter === 'all' ? '' : 'none';
+    viewMore.textContent = t[expanded ? 'work.less' : 'work.viewMore'];
+    viewMore.setAttribute('data-i18n', expanded ? 'work.less' : 'work.viewMore');
+  }
+
+  function renderTimeline(target, items) {
+    target.innerHTML = items.map(function (it) {
+      return '<article class="tl__item">' +
+        '<p class="tl__date">' + it.date + '</p>' +
+        '<h3 class="tl__title">' + it.title + '</h3>' +
+        '<p class="tl__org">' + it.org + '</p>' +
+        '<p class="tl__desc">' + it.desc + '</p>' +
+        '<div class="tl__meta">' + it.tags.map(function (x) { return '<span class="tag">' + x + '</span>'; }).join('') + '</div>' +
+      '</article>';
+    }).join('');
+  }
+
+  function renderRefs() {
+    const stars = new Array(5).fill(ICONS.star).join('');
+    refsTrack.innerHTML = DATA.refs[lang].map(function (r) {
+      return '<article class="ref">' +
+        '<div class="ref__top">' +
+          '<span class="ref__avatar" aria-hidden="true">' + r.initials + '</span>' +
+          '<div><p class="ref__name">' + r.name + '</p><p class="ref__role">' + r.role + '</p></div>' +
+          '<span class="stars" aria-label="5 / 5">' + stars + '</span>' +
+        '</div>' +
+        '<p class="ref__quote">' + r.quote + '</p>' +
+      '</article>';
+    }).join('');
+    refsDots.innerHTML = DATA.refs[lang].map(function (_, i) {
+      return '<button type="button" aria-label="' + (lang === 'es' ? 'Referencia ' : 'Reference ') + (i + 1) + '" data-dot="' + i + '"></button>';
+    }).join('');
+    setDot(0);
+  }
+
+  function setDot(i) {
+    $$('#refsDots button').forEach(function (d, k) { d.classList.toggle('is-active', k === i); });
+  }
+
+  /* ---------- language ---------- */
+  function applyLang(next) {
+    lang = next;
+    t = I18N[lang];
+    document.documentElement.lang = lang;
+    document.documentElement.setAttribute('data-lang', lang);
+    document.title = t['meta.title'];
+    const md = document.querySelector('meta[name="description"]');
+    if (md) md.setAttribute('content', t['meta.desc']);
+
+    $$('[data-i18n]').forEach(function (el) { const v = t[el.dataset.i18n]; if (v != null) el.textContent = v; });
+    $$('[data-i18n-placeholder]').forEach(function (el) { const v = t[el.dataset.i18nPlaceholder]; if (v != null) el.placeholder = v; });
+    $$('[data-i18n-alt]').forEach(function (el) { const v = t[el.dataset.i18nAlt]; if (v != null) el.alt = v; });
+    $$('[data-i18n-aria]').forEach(function (el) {
+      const open = el.getAttribute('aria-expanded') === 'true';
+      el.setAttribute('aria-label', open ? (lang === 'es' ? 'Cerrar menú' : 'Close menu') : t[el.dataset.i18nAria]);
+    });
+    $$('.lang__btn').forEach(function (b) { b.classList.toggle('is-active', b.dataset.lang === lang); });
+
+    renderChips();
+    renderServices();
+    renderFilters();
+    renderWork();
+    renderTimeline($('#experienceList'), DATA.exp[lang]);
+    renderTimeline($('#educationList'), DATA.edu[lang]);
+    renderRefs();
+
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+
+  /* ---------- nav ---------- */
+  function setMenu(open) {
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? (lang === 'es' ? 'Cerrar menú' : 'Close menu') : t['nav.menu']);
+    mobileMenu.classList.toggle('is-open', open);
+  }
+  burger.addEventListener('click', function () {
+    setMenu(burger.getAttribute('aria-expanded') !== 'true');
+  });
+  $$('a', mobileMenu).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  document.addEventListener('click', function (e) {
+    if (mobileMenu.classList.contains('is-open') && !mobileMenu.contains(e.target) && !burger.contains(e.target)) setMenu(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { setMenu(false); }
+  });
+
+  $$('.lang__btn').forEach(function (b) {
+    b.addEventListener('click', function () { applyLang(b.dataset.lang); });
+  });
+
+  /* ---------- filters & view more ---------- */
+  filtersEl.addEventListener('click', function (e) {
+    const btn = e.target.closest('.pill');
+    if (!btn) return;
+    filter = btn.dataset.filter;
+    $$('.pill', filtersEl).forEach(function (p) {
+      const on = p === btn;
+      p.classList.toggle('is-active', on);
+      p.setAttribute('aria-pressed', String(on));
+    });
+    syncWork();
+  });
+
+  viewMore.addEventListener('click', function () {
+    expanded = !expanded;
+    syncWork();
+  });
+
+  /* ---------- refs carousel ---------- */
+  refsTrack.addEventListener('scroll', function () {
+    const card = refsTrack.querySelector('.ref');
+    if (!card) return;
+    const step = card.getBoundingClientRect().width + 10;
+    setDot(Math.round(refsTrack.scrollLeft / step));
+  }, { passive: true });
+
+  refsDots.addEventListener('click', function (e) {
+    const dot = e.target.closest('button[data-dot]');
+    if (!dot) return;
+    const i = Number(dot.dataset.dot);
+    const card = refsTrack.querySelectorAll('.ref')[i];
+    if (card) refsTrack.scrollTo({ left: card.offsetLeft - refsTrack.offsetLeft, behavior: 'smooth' });
+  });
+
+  /* ---------- form ---------- */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = $('#email').value.trim();
+    const message = $('#message').value.trim();
+    const okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const okMsg = message.length >= 10;
+    formNote.classList.remove('is-ok');
+
+    if (!okEmail || !okMsg) {
+      formNote.textContent = lang === 'es'
+        ? 'Revisa tu email y escribe un mensaje de al menos 10 caracteres.'
+        : 'Please check your email and write a message of at least 10 characters.';
+      return;
+    }
+
+    formNote.textContent = t['contact.success'];
+    formNote.classList.add('is-ok');
+    const subject = encodeURIComponent(lang === 'es' ? 'Contacto desde el portafolio' : 'Portfolio enquiry');
+    const body = encodeURIComponent(message + '\n\n' + (lang === 'es' ? 'Responder a: ' : 'Reply to: ') + email);
+    window.location.href = 'mailto:anthony@example.com?subject=' + subject + '&body=' + body;
+    form.reset();
+  });
+
+  /* ---------- scroll reveal + spy ---------- */
+  const revealEls = $$('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    const ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-visible'); ro.unobserve(en.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function (el) { ro.observe(el); });
+
+    const links = $$('.nav__links a');
+    const spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        const id = en.target.id;
+        links.forEach(function (a) { a.classList.toggle('is-active', a.getAttribute('href') === '#' + id); });
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    ['home', 'about', 'services', 'experience', 'education', 'work', 'references', 'contact'].forEach(function (id) {
+      const el = document.getElementById(id);
+      if (el) spy.observe(el);
+    });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* ---------- boot ---------- */
+  $('#year').textContent = new Date().getFullYear();
+  let saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  const initial = saved || ((navigator.language || 'en').toLowerCase().indexOf('es') === 0 ? 'es' : 'en');
+  applyLang(initial);
+})();
+</script>
+
+
+</body>
+</html>

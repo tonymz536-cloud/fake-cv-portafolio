@@ -544,6 +544,60 @@ h1,h2,h3,h4,p{margin:0}
   [data-reveal]{opacity:1;transform:none}
 }
 
+/* ============================================================
+   ADMIN PANEL (frontend content editor)
+   ============================================================ */
+#adminToggle{
+  position:fixed;bottom:16px;right:16px;z-index:1000;
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);
+  background:#0a120f;color:#fff;cursor:pointer;font-size:13px;font-weight:700;
+  display:grid;place-items:center;box-shadow:0 20px 40px -20px rgba(0,0,0,.9);
+}
+#adminToggle:hover{background:#0d1814;border-color:var(--green-400)}
+
+.admin{
+  position:fixed;inset:0;z-index:2000;display:none;flex-direction:column;
+  background:#040605;color:#fff;font-family:var(--font-body);font-size:13px;
+}
+.admin.is-open{display:flex}
+.admin__bar{
+  display:flex;align-items:center;justify-content:space-between;padding:14px 18px;
+  border-bottom:1px solid var(--line);background:#070908;
+}
+.admin__title{font-weight:700;font-size:14px;color:var(--mint)}
+.admin__close{background:var(--line);border-radius:8px;width:32px;height:32px;display:grid;place-items:center;cursor:pointer}
+.admin__body{flex:1;overflow:auto;padding:18px;display:grid;grid-template-columns:260px 1fr;gap:18px}
+.admin__nav{border-right:1px solid var(--line);padding-right:14px;display:flex;flex-direction:column;gap:2px}
+.admin__nav button{
+  background:none;border:0;color:#9aa8a1;padding:8px 10px;text-align:left;border-radius:8px;
+  cursor:pointer;font-size:12.5px;transition:.2s;white-space:nowrap
+}
+.admin__nav button:hover,.admin__nav button.is-active{background:rgba(124,240,184,.1);color:#fff}
+.admin__panel{display:none;overflow:auto;padding-top:4px}
+.admin__panel.is-active{display:block}
+.admin__field{margin-bottom:14px}
+.admin__field label{display:block;font-size:11.5px;font-weight:600;color:#9aa8a1;margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.admin__field input,.admin__field textarea{
+  width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.13);
+  border-radius:10px;color:#fff;padding:10px 12px;font:inherit;font-size:13px;
+}
+.admin__field textarea{min-height:70px;resize:vertical}
+.admin__field input:focus,.admin__field textarea:focus{border-color:var(--green-400);outline:none}
+.admin__actions{
+  padding:14px 18px;border-top:1px solid var(--line);background:#070908;
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center
+}
+.admin__btn{
+  border:1px solid var(--line);background:rgba(255,255,255,.03);color:#fff;padding:8px 14px;
+  border-radius:8px;font-size:12px;font-weight:600;cursor:pointer
+}
+.admin__btn:hover{border-color:var(--green-400)}
+.admin__btn--primary{background:var(--green-400);color:#04150d;border-color:var(--green-400)}
+.admin__btn--primary:hover{background:#0ea864}
+.admin__msg{margin-top:8px;font-size:11.5px;color:var(--green-400);min-height:16px}
+.admin__msg--err{color:#ff6b6b}
+.admin__hint{font-size:11px;color:var(--muted);margin-top:6px}
+
 </style>
 </head>
 <body>
@@ -756,9 +810,9 @@ h1,h2,h3,h4,p{margin:0}
 
         <div class="contact__direct">
           <h3 data-i18n="contact.direct">Or reach me directly</h3>
-          <a class="contact-link" href="mailto:anthony@example.com">
+          <a class="contact-link" href="mailto:anthony@example.com" data-admin-field="contact.email">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></svg>
-            anthony@example.com
+            <span class="contact-email-text">anthony@example.com</span>
           </a>
           <a class="contact-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10v7M8 7v.01M12 17v-4a2.5 2.5 0 0 1 5 0v4"/></svg>
@@ -786,6 +840,44 @@ h1,h2,h3,h4,p{margin:0}
     </div>
   </div>
 </footer>
+
+<button id="adminToggle" aria-label="Abrir editor de contenido">⚙</button>
+
+<div class="admin" id="admin">
+  <div class="admin__bar">
+    <span class="admin__title">Editor de contenido</span>
+    <button class="admin__close" id="adminClose" aria-label="Cerrar editor">✕</button>
+  </div>
+  <div class="admin__body">
+    <nav class="admin__nav">
+      <button type="button" class="admin__nav-item is-active" data-admin-panel="textos">Textos</button>
+      <button type="button" class="admin__nav-item" data-admin-panel="servicios">Servicios</button>
+      <button type="button" class="admin__nav-item" data-admin-panel="proyectos">Proyectos</button>
+      <button type="button" class="admin__nav-item" data-admin-panel="experiencia">Experiencia</button>
+      <button type="button" class="admin__nav-item" data-admin-panel="educacion">Educación</button>
+      <button type="button" class="admin__nav-item" data-admin-panel="referencias">Referencias</button>
+      <button type="button" class="admin__nav-item" data-admin-panel="contacto">Contacto</button>
+    </nav>
+    <div class="admin__panels">
+      <div class="admin__panel is-active" id="panel-textos"></div>
+      <div class="admin__panel" id="panel-servicios"></div>
+      <div class="admin__panel" id="panel-proyectos"></div>
+      <div class="admin__panel" id="panel-experiencia"></div>
+      <div class="admin__panel" id="panel-educacion"></div>
+      <div class="admin__panel" id="panel-referencias"></div>
+      <div class="admin__panel" id="panel-contacto"></div>
+    </div>
+  </div>
+  <div class="admin__actions">
+    <button class="admin__btn admin__btn--primary" id="adminApply">Aplicar cambios</button>
+    <button class="admin__btn" id="adminExport">Exportar JSON</button>
+    <button class="admin__btn" id="adminImport">Importar JSON</button>
+    <input type="file" id="adminFile" accept=".json" style="display:none" />
+    <button class="admin__btn admin__btn--primary" id="adminReset">Restablecer datos</button>
+    <span class="admin__msg" id="adminMsg"></span>
+  </div>
+</div>
+
 <script>
 /* ============================================================
    ICONS
@@ -1201,7 +1293,8 @@ const DATA = {
     formNote.classList.add('is-ok');
     const subject = encodeURIComponent(lang === 'es' ? 'Contacto desde el portafolio' : 'Portfolio enquiry');
     const body = encodeURIComponent(message + '\n\n' + (lang === 'es' ? 'Responder a: ' : 'Reply to: ') + email);
-    window.location.href = 'mailto:anthony@example.com?subject=' + subject + '&body=' + body;
+    const cd = window.__contactData || {};
+    window.location.href = 'mailto:' + (cd['email'] || 'anthony@example.com') + '?subject=' + subject + '&body=' + body;
     form.reset();
   });
 
@@ -1231,8 +1324,252 @@ const DATA = {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
+  /* ---------- admin panel ---------- */
+  const admin      = $('#admin');
+  const adminToggle= $('#adminToggle');
+  const adminClose = $('#adminClose');
+  const adminMsg   = $('#adminMsg');
+  const adminPanels= $$('.admin__panel');
+  const adminNav   = $$('.admin__nav-item');
+
+  function adminShow(msg, isErr) {
+    adminMsg.textContent = msg;
+    adminMsg.className = 'admin__msg' + (isErr ? ' admin__msg--err' : '');
+    setTimeout(() => { adminMsg.textContent = ''; }, 3000);
+  }
+
+  adminToggle.addEventListener('click', function () { admin.classList.add('is-open'); });
+  adminClose.addEventListener('click', function () { admin.classList.remove('is-open'); });
+  admin.addEventListener('click', function (e) {
+    if (e.target === admin) admin.classList.remove('is-open');
+  });
+
+  function adminSwitch(panel) {
+    adminNav.forEach(b => b.classList.toggle('is-active', b.dataset.adminPanel === panel));
+    adminPanels.forEach(p => p.classList.toggle('is-active', p.id === 'panel-' + panel));
+  }
+  adminNav.forEach(b => {
+    b.addEventListener('click', function () { adminSwitch(b.dataset.adminPanel); });
+  });
+
+  function escHtml(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function buildField(id, label, value, multiline) {
+    return '<div class="admin__field">' +
+      '<label>' + escHtml(label) + '</label>' +
+      (multiline
+        ? '<textarea id="' + escHtml(id) + '" data-admin-field="' + escHtml(id) + '">' + escHtml(value) + '</textarea>'
+        : '<input type="text" id="' + escHtml(id) + '" data-admin-field="' + escHtml(id) + '" value="' + escHtml(value) + '" />') +
+      '</div>';
+  }
+
+  function renderPanelTextos() {
+    const d = DATA;
+    const es = d.services.es[0]; // placeholder structure
+    const html =
+      buildField('admin_meta_title', 'Título de pestaña (EN)', I18N.en['meta.title']) +
+      buildField('admin_meta_desc', 'Descripción meta (EN)', I18N.en['meta.desc']) +
+      buildField('admin_hero_badge', 'Badget hero', I18N.en['hero.badge']) +
+      buildField('admin_hero_name', 'Nombre hero', I18N.en['hero.name']) +
+      buildField('admin_hero_role', 'Rol hero', I18N.en['hero.role']) +
+      buildField('admin_hero_desc', 'Descripción hero', I18N.en['hero.desc'], true) +
+      buildField('admin_about_title', 'Título About', I18N.en['about.title']) +
+      buildField('admin_about_p1', 'Párrafo About 1', I18N.en['about.p1'], true) +
+      buildField('admin_about_p2', 'Párrafo About 2', I18N.en['about.p2'], true) +
+      buildField('admin_exp_title', 'Título Experiencia', I18N.en['exp.title']) +
+      buildField('admin_exp_desc', 'Descripción Experiencia', I18N.en['exp.desc'], true) +
+      buildField('admin_edu_title', 'Título Educación', I18N.en['edu.title']) +
+      buildField('admin_work_title', 'Título Portafolio', I18N.en['work.title']) +
+      buildField('admin_work_desc', 'Descripción Portafolio', I18N.en['work.desc'], true) +
+      buildField('admin_refs_title', 'Título Referencias', I18N.en['refs.title']) +
+      buildField('admin_refs_desc', 'Descripción Referencias', I18N.en['refs.desc'], true) +
+      buildField('admin_contact_title', 'Título Contacto', I18N.en['contact.title']) +
+      buildField('admin_contact_desc', 'Descripción Contacto', I18N.en['contact.desc'], true) +
+      buildField('admin_contact_location', 'Ubicación', I18N.en['contact.location']);
+    $('#panel-textos').innerHTML = html;
+  }
+
+  function renderPanelServicios() {
+    const html = DATA.services.en.map(function (s, i) {
+      return '<div class="admin__field">' +
+        '<label>Servicio ' + (i + 1) + ' - Título</label>' +
+        '<input type="text" data-admin-field="services.en.' + i + '.title" value="' + escHtml(s.title) + '" />' +
+      '</div>' +
+      '<div class="admin__field">' +
+        '<label>Servicio ' + (i + 1) + ' - Subtítulo</label>' +
+        '<input type="text" data-admin-field="services.en.' + i + '.sub" value="' + escHtml(s.sub) + '" />' +
+      '</div>';
+    }).join('');
+    $('#panel-servicios').innerHTML = html;
+  }
+
+  function renderPanelProyectos() {
+    const html = DATA.work.en.map(function (w, i) {
+      return '<div class="admin__field" style="border:1px solid var(--line);padding:10px;border-radius:10px;margin-bottom:12px">' +
+        '<div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Proyecto ' + (i + 1) + '</div>' +
+        buildField('work.en.' + i + '.tag', 'Tag (aero/auto/ops)', w.tag) +
+        buildField('work.en.' + i + '.thumb', 'Thumbnail (cad/list/plan/gauge/flow)', w.thumb) +
+        buildField('work.en.' + i + '.title', 'Título', w.title) +
+        buildField('work.en.' + i + '.desc', 'Descripción', w.desc, true) +
+      '</div>';
+    }).join('');
+    $('#panel-proyectos').innerHTML = html;
+  }
+
+  function renderPanelExperiencia() {
+    const html = DATA.exp.en.map(function (e, i) {
+      return '<div class="admin__field" style="border:1px solid var(--line);padding:10px;border-radius:10px;margin-bottom:12px">' +
+        '<div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Experiencia ' + (i + 1) + '</div>' +
+        buildField('exp.en.' + i + '.date', 'Fecha', e.date) +
+        buildField('exp.en.' + i + '.title', 'Título', e.title) +
+        buildField('exp.en.' + i + '.org', 'Organización', e.org) +
+        buildField('exp.en.' + i + '.desc', 'Descripción', e.desc, true) +
+        buildField('exp.en.' + i + '.tags', 'Etiquetas (coma separada)', e.tags.join(', ')) +
+      '</div>';
+    }).join('');
+    $('#panel-experiencia').innerHTML = html;
+  }
+
+  function renderPanelEducacion() {
+    const html = DATA.edu.en.map(function (e, i) {
+      return '<div class="admin__field" style="border:1px solid var(--line);padding:10px;border-radius:10px;margin-bottom:12px">' +
+        '<div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Educación ' + (i + 1) + '</div>' +
+        buildField('edu.en.' + i + '.date', 'Fecha', e.date) +
+        buildField('edu.en.' + i + '.title', 'Título', e.title) +
+        buildField('edu.en.' + i + '.org', 'Institución', e.org) +
+        buildField('edu.en.' + i + '.desc', 'Descripción', e.desc, true) +
+        buildField('edu.en.' + i + '.tags', 'Etiquetas (coma separada)', e.tags.join(', ')) +
+      '</div>';
+    }).join('');
+    $('#panel-educacion').innerHTML = html;
+  }
+
+  function renderPanelReferencias() {
+    const html = DATA.refs.en.map(function (r, i) {
+      return '<div class="admin__field" style="border:1px solid var(--line);padding:10px;border-radius:10px;margin-bottom:12px">' +
+        '<div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Referencia ' + (i + 1) + '</div>' +
+        buildField('refs.en.' + i + '.initials', 'Iniciales (avatar)', r.initials) +
+        buildField('refs.en.' + i + '.name', 'Nombre', r.name) +
+        buildField('refs.en.' + i + '.role', 'Cargo / Empresa', r.role) +
+        buildField('refs.en.' + i + '.quote', 'Cita', r.quote, true) +
+      '</div>';
+    }).join('');
+    $('#panel-referencias').innerHTML = html;
+  }
+
+  function renderPanelContacto() {
+    const cd = window.__contactData || {};
+    const html =
+      buildField('contact.email', 'Email directo', cd['email'] || 'anthony@example.com') +
+      buildField('contact.location', 'Ubicación', cd['location'] || I18N.en['contact.location']) +
+      buildField('contact.success', 'Mensaje de éxito formulario', cd['success'] || I18N.en['contact.success'], true);
+    $('#panel-contacto').innerHTML = html;
+  }
+
+  function adminRenderAll() {
+    renderPanelTextos();
+    renderPanelServicios();
+    renderPanelProyectos();
+    renderPanelExperiencia();
+    renderPanelEducacion();
+    renderPanelReferencias();
+    renderPanelContacto();
+  }
+
+  function adminApplyChanges() {
+    const fields = $$('[data-admin-field]');
+    fields.forEach(function (el) {
+      const path = el.getAttribute('data-admin-field');
+      const val = el.tagName === 'TEXTAREA' ? el.value : el.value;
+
+      // admin_* keys map to I18N.en
+      if (path.indexOf('admin_') === 0) {
+        const key = path.replace('admin_', '').replace(/_/g, '.');
+        I18N.en[key] = val;
+        return;
+      }
+
+      // contact.* keys are standalone strings
+      if (path.indexOf('contact.') === 0) {
+        window.__contactData = window.__contactData || {};
+        window.__contactData[path.replace('contact.', '')] = val;
+        // Update live DOM for email link
+        if (path === 'contact.email') {
+          const link = document.querySelector('a[data-admin-field="contact.email"]');
+          const text = link.querySelector('.contact-email-text');
+          if (link) link.href = 'mailto:' + val;
+          if (text) text.textContent = val;
+        }
+        return;
+      }
+
+      // DATA.* dot-path navigation
+      const parts = path.split('.');
+      let target = DATA;
+      for (let i = 0; i < parts.length - 1; i++) {
+        target = target[parts[i]];
+        if (!target) return;
+      }
+      const last = parts[parts.length - 1];
+      if (target && target[last] !== undefined) {
+        if (last === 'tags') {
+          target[last] = val.split(',').map(function (s) { return s.trim(); }).filter(function (s) { return s; });
+        } else {
+          target[last] = val;
+        }
+      }
+    });
+
+    // Re-render visible site with current lang
+    applyLang(lang);
+    adminShow('Cambios aplicados. Usa Exportar JSON para guardar.');
+  }
+
+  $('#adminExport').addEventListener('click', function () {
+    const blob = new Blob([JSON.stringify(DATA, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'portfolio-datos.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  $('#adminImport').addEventListener('click', function () {
+    $('#adminFile').click();
+  });
+  $('#adminFile').addEventListener('change', function (e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function (ev) {
+      try {
+        const imported = JSON.parse(ev.target.result);
+        Object.assign(DATA, imported);
+        adminRenderAll();
+        adminShow('Datos importados correctamente.');
+      } catch (err) {
+        adminShow('Error al importar JSON: ' + err.message, true);
+      }
+    };
+    reader.readAsText(file);
+  });
+
+  $('#adminReset').addEventListener('click', function () {
+    if (!confirm('¿Restablecer todos los datos a los valores originales?')) return;
+    location.reload();
+  });
+
+  $('#adminApply') && $('#adminApply').addEventListener('click', adminApplyChanges);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') admin.classList.remove('is-open');
+  });
+
   /* ---------- boot ---------- */
   $('#year').textContent = new Date().getFullYear();
+  adminRenderAll();
   let saved = null;
   try { saved = localStorage.getItem('lang'); } catch (e) {}
   const initial = saved || ((navigator.language || 'en').toLowerCase().indexOf('es') === 0 ? 'es' : 'en');
